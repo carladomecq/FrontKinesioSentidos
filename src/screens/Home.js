@@ -14,7 +14,7 @@ const Home = () => {
           <Container className='center-text center-img'>
           <br />
           <Col className='text-center py-3'>
-             <img className='center-img'
+             <img className='center-img autoflex'
               alt=""
               src="/marca.svg"
               width="500"
