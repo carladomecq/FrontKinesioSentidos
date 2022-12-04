@@ -9,7 +9,7 @@ const Kinesiologos = [
     
     {
         _id: '2',
-        name: 'Mauricio Sanchez',
+        name: 'Lionel Messi',
         image: '/images/kine2.jpeg',
         descripcion: 'Terapista Ocupacional',
     },
