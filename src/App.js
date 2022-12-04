@@ -17,13 +17,12 @@ const App = () => {
   return (
     <RouteNotFound>
       <Route path={PublicRoutes.HOME} element={<Home />} />
-      <Route path={PublicRoutes.Nosotros} element={<Nosotros />} />
-      <Route path={PublicRoutes.IngresoPaciente} element={<IngresoPaciente />} />
-      <Route path={PublicRoutes.GestionPacientes} element={<GestionPacientes />} />
-      <Route path={PublicRoutes.Contacto} element={<Contacto />} />
       <Route element={<AuthGuard />}></Route>
       <Route path='/NuevoPaciente' element={<NuevoPaciente />} />
-     
+      <Route path='/Nosotros' element={<Nosotros />} />
+      <Route path='/Contacto' element={<Contacto />} />
+      <Route path='/GestionPacientes' element={<GestionPacientes />} />
+      <Route path='/IngresoPaciente' element={<IngresoPaciente />} />
     </RouteNotFound>
   )
 }
