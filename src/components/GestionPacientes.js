@@ -1,76 +1,83 @@
+import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import {Table,Button, Container} from 'react-bootstrap';
-import Swal from 'sweetalert2'
-import Header from './Header'
-import Footer from './Footer'
+import { Table, Button } from 'react-bootstrap';
+import Swal from 'sweetalert2';
 
-function GestionPacientes() {
+const GestionPacientes = () => {
 
-    const [pacientes, setPacientes] = useState([]);
+  const [pacientes, setPacientes] = useState([]);
+
+  const URL = 'http://localhost:9000/'; 
+
+  const getPacientes = async () => {
+    try {
+      const { data } = await axios.get(URL);
+      setPacientes(data.paciente)
+      console.log(data.paciente);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    getPacientes()
+  }, [])
+
+
+  const handleDelete = (id) => {
+    console.log(id);
+
+    Swal.fire({
+      title: 'Está seguro de ELIMINAR?',
+      showDenyButton: true,
+      confirmButtonText: 'Eliminar',
+      denyButtonText: `No Eliminar`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        axios.delete(`${URL}${id}`)
+        Swal.fire('Eliminado', '', 'success')
+        getPacientes()
+      } else if (result.isDenied) {
+        Swal.fire('Sus datos no se eliminaron')
+      }
+    })
+
 
     
-    const URL ='https://resto-app-back-production.up.railway.app/comments/'
+   axios.delete(URL + id)
+   axios.delete(`http://localhost:9000/${id}`);
+  }
 
-    useEffect( () => {
-        axios.get(URL).then((response) => {
-         setPacientes(response.data.pacientes);
-       });
-     }, []);
-
-     const handleDelete = async (id) => {
-        await axios.delete(URL+`delete/${id}`);
-        setPacientes(pacientes.filter((paciente) => paciente._id !== id));
-        Swal.fire(
-            'Consulta Eliminada',
-             '¡La consulta ha sido eliminada!',
-             'error'      
-         )
-     }
-    return (
-        <>
-        <Header />
-            <main className='py-3'>
-                 <Container className='center-text py-3'>
-                 <br />
-                 <h1 className='text-center'> CONSULTAS </h1>
-                 <div className='container m-3 p-5'>
-       
-                 <Table striped bordered hover size="" variant="">
-                 <thead>
-                 <tr className='text-center'>
-                 {/* <th>Ticket id</th> */}
-                 <th>Nombre</th>
-                 <th>Apellido</th>
-                 <th>E-Mail</th>
-                 <th>Telefono</th>
-                 <th>Comentario</th>
-                 <th className='col-1'>Opciones</th>
-                 </tr>
-                 </thead>
-                 <tbody>
-                 {pacientes.map((paciente) => (
-                 <tr>
-                    {/* <td>{paciente._id}</td> */}
-                    
-                    <td>{paciente.nombre}</td>
-                    <td>{paciente.apellido}</td>
-                    <td>{paciente.email}</td>
-                    <td>{paciente.telefono}</td>
-                    <td>{paciente.consulta}</td>
-                    <td className='d-grid gap-2 d-md-flex justify-content-md-center'>
-                        <Button className='btn btn-danger btn-sm' onClick={()=> handleDelete(paciente._id)}>Eliminar</Button>
-                    </td>
-                </tr>
-                   ))}
-                </tbody>
-                </Table>
-                </div>
-                </Container>
-            </main>
-        <Footer />
-        </>
-    )
+  return (
+    <div className="container text-center m-5">
+         <Table className="table m-4">
+        <thead className="m-4">
+         {/*  <th>ID</th> */}
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>EMAIL</th>
+          <th>telefono</th>
+          <th>CONSULTA</th>
+        </thead>
+        <tbody className="m-4">
+          {pacientes.map(paciente => 
+            <tr>
+              {/* <td>{paciente._id}</td> */}
+              <td>{paciente.nombre}</td>
+              <td>{paciente.apellido}</td>
+              <td>{paciente.email}</td>
+              <td>{paciente.telefono}</td>
+              <td>{paciente.consulta}</td>
+              <td><Button variant="success" className="mt-3">Update</Button></td>
+              <td><Button variant="danger" onClick={() => handleDelete(paciente._id)}className="mt-3">Delete</Button></td>
+            </tr>
+          )}
+        </tbody>
+      </Table>
+    </div>
+  )
 }
 
 export default GestionPacientes;

@@ -21,8 +21,8 @@ const Header = () => {
             
           <Nav className="ml-auto">
             <Nav.Link href="/nosotros">NOSOTROS</Nav.Link>
-            <Nav.Link href="/contacto">CONTACTO</Nav.Link>
-            <Nav.Link href="/ingresopaciente"><i className='fas fa-user'></i> INGRESO PACIENTES</Nav.Link>
+            <Nav.Link href="/consultas">CONSULTAS</Nav.Link>
+            <Nav.Link href="/listaconsultas">LISTA CONSULTAS</Nav.Link>
           </Nav>
            
         </Navbar.Collapse>

@@ -5,10 +5,12 @@ import { RouteNotFound } from './utilities/RouteNotFound'
 import { Route } from 'react-router-dom'
 import { PublicRoutes } from './guard/routes'
 import { AuthGuard } from './guard/AuthGuard'
-import Contacto from './screens/Contacto'
-import IngresoPaciente from './screens/IngresoPaciente'
+import Consultas from './screens/Consultas'
+import ListaConsultas from './screens/ListaConsultas'
+import Formulario from './components/Formulario'
 import GestionPacientes from './components/GestionPacientes'
-import NuevoPaciente from './screens/NuevoPaciente'
+
+
 
 
 
@@ -18,11 +20,11 @@ const App = () => {
     <RouteNotFound>
       <Route path={PublicRoutes.HOME} element={<Home />} />
       <Route element={<AuthGuard />}></Route>
-      <Route path='/NuevoPaciente' element={<NuevoPaciente />} />
-      <Route path='/Nosotros' element={<Nosotros />} />
-      <Route path='/Contacto' element={<Contacto />} />
-      <Route path='/GestionPacientes' element={<GestionPacientes />} />
-      <Route path='/IngresoPaciente' element={<IngresoPaciente />} />
+      <Route path='/nosotros' element={<Nosotros />} />
+      <Route path='/consultas' element={<Consultas />} />
+      <Route path='/listaconsultas' element={<ListaConsultas />} />
+      <Route path='/formulario' element={<Formulario />} />
+      <Route path='/gestionpacientes' element={<GestionPacientes />} />
     </RouteNotFound>
   )
 }
