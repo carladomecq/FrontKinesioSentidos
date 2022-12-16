@@ -1,3 +1,42 @@
+## Proyecto Final Diplomatura UTN - Pagina simple El proyecto consta con un CRUD sobre Consultas y la lista de consultas.
+
+## Instrucciones 🚀 Recomendamos clonar el repositorio localmente en la máquina en la cual se vaya a utilizar.
+
+## Pre-requisitos 📋 Node (este proyecto fue desarrollado en version 16.17.1) React (este proyecto fue desarrollado en version 4.0.4) 
+## Instalación 🔧 Debe intalar las siguientes dependencias ( npm install (dependencia)) y si desea cambie la URL a un puerto de entorno local.
+
+ "@testing-library/jest-dom": "^5.16.5",
+ "@testing-library/react": "^13.4.0",
+ "@testing-library/user-event": "^13.5.0",
+ "axios": "^1.2.0",
+ "bootstrap": "^5.2.2",
+ "react": "^18.2.0",
+ "react-bootstrap": "^2.6.0",
+ "react-dom": "^18.2.0",
+ "react-router-bootstrap": "^0.26.2",
+ "react-router-dom": "^6.4.3",
+ "react-scripts": "5.0.1",
+ "sweetalert2": "^11.6.15",
+ "web-vitals": "^2.1.4"
+
+## Recuerde que es necesario correr el servidor con el siguiente comando: npm start
+
+Construido con 🛠️ Estas son las herramientas utilizadas para construir el proyecto
+
+## JavaScript - Lenguaje de programación principal 
+## React - El framework web usado 
+## Mongoatlas - database 
+## Bootstrap - Estilos 
+## Visual Studio Code - IDE
+
+Autor ✒️ Carla Domecq - * Carla fue el responsable de crear todo el proyecto* Licencia 📄 Este proyecto está bajo la Licencia libre. En caso de ser utilizado para cualquier proposito, se agradece mencionar a los autores.
+
+Expresiones de Gratitud 🎁 Comenta a otros sobre este proyecto 📢 Invita una cerveza 🍺 o un café ☕ a alguien del equipo. Da las gracias públicamente 🤓. etc. DOMECQ
+
+
+
+## Aqui dejo los pasos en mayor detalle
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
