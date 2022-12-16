@@ -8,7 +8,7 @@ const GestionPacientes = () => {
 
   const [pacientes, setPacientes] = useState([]);
 
-  const URL = 'http://localhost:9000/'; 
+  const URL = 'https://back-production-e61c.up.railway.app/'; 
 
   const getPacientes = async () => {
     try {
@@ -47,7 +47,7 @@ const GestionPacientes = () => {
 
     
    axios.delete(URL + id)
-   axios.delete(`http://localhost:9000/${id}`);
+   axios.delete(`https://back-production-e61c.up.railway.app/${id}`);
   }
 
   return (
